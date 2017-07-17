@@ -34,7 +34,7 @@
 	</div>
 	<div>
 		<h3>Rating:</h3>
-		<span th:text="${rating}"></span>
+		<div>Average rating: <span th:text="${rating}"></span></div>
 
 		<p th:if="${@userController.loggedUser != null}">
 		<fieldset class="rating">
@@ -59,7 +59,7 @@
 			<input type="hidden" name="game" id="inputGameName"
 				th:value="${game}" /><input type="hidden" name="rating"
 				id="inputRating" /> <input type="submit" id="addRating"
-				value="Add Rating" />
+				value="Rate" />
 		</form>
 		</p>
 	</div>
