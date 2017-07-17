@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Game</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="/css/stylesheet.css" />
+</head>
+<body>
+	<div th:replace="header::login_bar" />
+
+	<div th:replace="${game}::game" />
+
+	<div>
+		<h3>Score:</h3>
+		<ol>
+			<li th:each="score : ${scores}"><span th:text="${score.player}"></span>
+				<span th:text="${score.points}"></span></li>
+		</ol>
+	</div>
+	<div>
+		<h3>Comments:</h3>
+		<div th:if="${@userController.loggedUser != null}">
+			<form action="/comment" method="post">
+				<input type="hidden" name="game" th:value="${game}" /> <input
+					type="text" name="comment" /> <input type="submit" value="OK" />
+			</form>
+		</div>
+		<ol>
+			<li th:each="comment : ${comments}"><span
+				th:text="${comment.player}"></span> <br> <span
+				th:text="${comment.comment}"></span></br> <span
+				th:text="${comment.commentedon}"></span></li>
+		</ol>
+	</div>
+	<div>
+		<h3>Rating:</h3>
+		<span th:text="${rating}"></span>
+
+		<p th:if="${@userController.loggedUser != null}">
+		<fieldset class="rating">
+			<input onclick="rating(this)" type="radio" id="star5" name="rating"
+				value="5" /><label class="full" for="star5"
+				title="Awesome - 5 stars"></label> <input onclick="rating(this)"
+				type="radio" id="star4" name="rating" value="4" /><label
+				class="full" for="star4" title="Pretty good - 4 stars"></label> <input
+				onclick="rating(this)" type="radio" id="star3" name="rating"
+				value="3" /><label class="full" for="star3" title="Meh - 3 stars"></label>
+
+			<input onclick="rating(this)" type="radio" id="star2" name="rating"
+				value="2" /><label class="full" for="star2"
+				title="Kinda bad - 2 stars"></label> <input onclick="rating(this)"
+				type="radio" id="star1" name="rating" value="1" /><label
+				class="full" for="star1" title="Sucks big time - 1 star"></label>
+
+		</fieldset>
+
+
+		<form action="/rating" method="POST">
+			<input type="hidden" name="game" id="inputGameName"
+				th:value="${game}" /><input type="hidden" name="rating"
+				id="inputRating" /> <input type="submit" id="addRating"
+				value="Add Rating" />
+		</form>
+		</p>
+	</div>
+	<script src="/js/game.js"></script>
+
+</body>
+</html>

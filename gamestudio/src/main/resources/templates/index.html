@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Gamestudio</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous" />
+<link rel="stylesheet" href="/css/stylesheet.css" />
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div th:replace="header::login_bar" />
+		</div>
+		<div class="row">
+			<h1 id="gamepicktitle">Games</h1>
+		</div>
+		<div class="row" id="gameslink">
+
+			<div class="col-md-4">
+				<img class="img-rounded" src="/images/imgs/minesweeper.png"
+					alt="mines.png"></img>
+				<div id="gamestitle">Minesweeper</div>
+				<a class="btn btn-default" href="/minesweeper" role="button"> <span
+					class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>PLAY
+				</a>
+			</div>
+			<div class="col-md-4">
+				<img class="img-rounded" id="frontimg" src="/images/imgs/stones.jpg"
+					alt="stones.jpg"></img>
+				<div id="gamestitle">Stones</div>
+				<a class="btn btn-default" href="/stones" role="button"> <span
+					class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>PLAY
+				</a>
+			</div>
+			<div class="col-md-4">
+				<img class="img-rounded" id="frontimg" src="/images/imgs/pexeso.jpg"
+					alt="pexeso.jpg"></img>
+				<div id="gamestitle">Pexeso</div>
+				<a class="btn btn-default" href="/pexeso" role="button"> <span
+					class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>PLAY
+				</a>
+			</div>
+
+		</div>
+	</div>
+
+</body>
+</html>

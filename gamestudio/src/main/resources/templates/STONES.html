@@ -1,0 +1,14 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+	<div th:fragment="game">
+		<h1>Stones</h1>
+
+		<p th:utext='${@stonesController.renderField()}' />
+		<div th:text='${@stonesController.message}'></div>
+		<br> <a href="/stones?command=new">New Game</a> </br>
+	</div>
+
+
+</body>
+</html>
